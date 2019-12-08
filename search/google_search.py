@@ -47,19 +47,3 @@ def pars_google(search_text,number_reursion):
                     link = tag.find('a').get('href')
                     result_main = "ОПИСАНИЕ:\n{}\nОСНОВНАЯ ССЫЛКА:\n{}\n\n".format(tag.text,link)
                     output_file.write(result_main)
-
-if __name__ == "__main__":
-    if len(sys.argv) == 1:
-        print("Ошибка. Слишком мало параметров!")
-        sys.exit (1)
-    elif len(sys.argv) == 2:
-        pars_google(sys.argv[1],0)
-    elif len(sys.argv) == 3:
-        try:
-            pars_google(sys.argv[1],int(sys.argv[2]))
-        except ValueError:
-            print("Ошибка. Укажите целое число!")
-            sys.exit(1)
-    else:
-        print("Ошибка. Слишком много параметров!")
-        sys.exit(1)
