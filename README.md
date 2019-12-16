@@ -7,6 +7,17 @@
 Результат поиска записывается в файл result.txt<br/>
 Пример запуска:
 - без рекурсии
-go_search.py алла
+go_search.py Россия
 - с учетом рекурсии
-go_search.py алла 5
+go_search.py Россия 5<br/>
+Результат:<br/>
+ОПИСАНИЕ:<br/>
+Авиакомпания "Россия"https://www.rossiya-airlines.comСохраненная копияАвиакомпания ГТК <br/>"Россия" - Российские авиалинии: бронирование и продажа билетов на самолет, расписание <br/>рейсов, информация о ценах на ...<br/>
+ОСНОВНАЯ ССЫЛКА:<br/>
+https://www.rossiya-airlines.com/<br/>
+РЕКУРСИВНЫЕ ССЫЛКИ:<br/>
+https://www.youtube.com/c/авиакомпанияроссия<br/>
+https://www.instagram.com/rossiya_airlines/?from=main_page_header<br/>
+https://wci.rossiya-airlines.com/?lang=ru<br/>
+https://wci.rossiya-airlines.com/?lang=ru<br/>
+https://wtrweb.worldtracer.aero/filedsp/fv.htm<br/>

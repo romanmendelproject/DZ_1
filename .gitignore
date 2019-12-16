@@ -24,6 +24,7 @@ var/
 pip-log.txt
 pip-delete-this-directory.txt
 
+
 # Unit test / coverage reports
 .tox/
 .coverage
@@ -48,3 +49,6 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+
+# resilt file
+result.txt
