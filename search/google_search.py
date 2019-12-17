@@ -1,4 +1,7 @@
 import requests
+import validators
+import socket
+import logging
 from bs4 import BeautifulSoup
 from constants import User_Agent
 
@@ -10,19 +13,19 @@ def request(url):
 
 
 def recursion(link, req_num):
-    soup_req = request(link)
     links_req = list()
     link_number = 0
+    try:
+        soup_req = request(link)
+    except socket.error:
+        return 'link_error'
     for link_req in soup_req.find_all('a'):
-        if req_num > link_number:
-            link_req_item = link_req.get('href')
-            if len(str(link_req_item)) > 4 and link_req_item[:4] == 'http':
-                links_req.append(link_req_item)
-                link_number += 1
-            else:
-                continue
+        link_req_item = str(link_req.get('href'))
+        if validators.url(link_req_item) and link_number < req_num:
+            links_req.append(link_req_item)
+            link_number += 1
         else:
-            break
+            continue
     return links_req
 
 
@@ -38,6 +41,9 @@ def pars_google(search_text, number_reursion):
                     ОСНОВНАЯ ССЫЛКА:\n{link}\n"
                     output_file.write(result_main)
                     rec = recursion(link, number_reursion)
+                    if rec == 'link_error':
+                        output_file.write("Ресурс недоступен!\n\n\n")
+                        continue
                     output_file.write("РЕКУРСИВНЫЕ ССЫЛКИ:\n")
                     for rec_item in rec:
                         output_file.write(f"{rec_item}\n")
