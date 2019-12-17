@@ -3,7 +3,9 @@ import validators
 import socket
 import logging
 from bs4 import BeautifulSoup
-from constants import User_Agent
+from constants import User_Agent, Log_Format
+
+logging.basicConfig(format = Log_Format, level = logging.ERROR,filename = 'log.log')
 
 
 def request(url):
@@ -18,6 +20,7 @@ def recursion(link, req_num):
     try:
         soup_req = request(link)
     except socket.error:
+        logging.error(f'{link} socket.error')
         return 'link_error'
     for link_req in soup_req.find_all('a'):
         link_req_item = str(link_req.get('href'))
