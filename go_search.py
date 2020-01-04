@@ -7,6 +7,9 @@ if __name__ == "__main__":
         logging.error('sys.argv < 2')
         print("Ошибка. Слишком мало параметров!")
         sys.exit(1)
+    elif len(sys.argv[1]) > 30:
+        print("Искомое слово должно быть не более 20 символов")
+        sys.exit(1)
     elif len(sys.argv) == 2:
         pars_google(sys.argv[1], 0)
     elif len(sys.argv) == 3:

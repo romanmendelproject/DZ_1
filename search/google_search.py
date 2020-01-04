@@ -33,12 +33,13 @@ def recursion(link, req_num):
 
 
 def pars_google(search_text, number_reursion):
+    max_result_in_page = 7
     with open('result.txt', 'w', encoding='utf-8') as output_file:
         url = 'https://www.google.com/search?q={}'.format(search_text)
         soup = request(url)
         if number_reursion:
             for i, tag in enumerate(soup.find_all("div", {"class": "g"})):
-                if i < 7:
+                if i < max_result_in_page:
                     link = tag.find('a').get('href')
                     result_main = f"ОПИСАНИЕ:\n{tag.text}\n\
                     ОСНОВНАЯ ССЫЛКА:\n{link}\n"
