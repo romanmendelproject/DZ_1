@@ -23,7 +23,7 @@ https://wci.rossiya-airlines.com/?lang=ru<br/>
 https://wci.rossiya-airlines.com/?lang=ru<br/>
 https://wtrweb.worldtracer.aero/filedsp/fv.htm<br/>
 <br/>
-### Тестирование проекта:
+Тестирование проекта:
 <pre>
 pytest -v
 ==================================================== test session starts =====================================================
